@@ -1,9 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import Pagination from "@components/control/Pagination.astro"
+import PostPage from "@components/PostPage.astro"
+import MainGridLayout from "@layouts/MainGridLayout.astro"
 ---
 
-<Layout title="Vlorente Snippets">
-	<main></main>
-</Layout>
+<MainGridLayout title="Vlorente Snippets">
+	<PostPage />
+	<Pagination />
+</MainGridLayout>
 
 <style></style>

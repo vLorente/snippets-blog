@@ -1,0 +1,105 @@
+---
+import type { LinkPreset, NavBarLink } from "@/types/config"
+import Section from "@components/Section.astro"
+import NavMenuPanel from "@components/widget/NavMenuPanel.astro"
+import { navBarConfig, siteConfig } from "@config"
+import { LinkPresets } from "@constants/link-presets"
+import ArrowUpSquare from "@icons/ArrowUpSquare.astro"
+import Home from "@icons/Home.astro"
+import Menu from "@icons/Menu.astro"
+import Moon from "@icons/Moon.astro"
+import Sun from "@icons/Sun.astro"
+
+const className = Astro.props.class
+
+let links: NavBarLink[] = navBarConfig.links.map(
+	(item: NavBarLink | LinkPreset): NavBarLink => {
+		if (typeof item === "number") {
+			return LinkPresets[item]
+		}
+		return item
+	}
+)
+---
+
+<Section
+	class:list={[
+		className,
+		"sticky top-0 mx-auto flex h-[4.5rem] items-center justify-between overflow-visible rounded-t-none",
+	]}
+>
+	<!-- HOME TITLE BUTTON - LEFT -->
+	<a
+		href="/"
+		class="btn-ghost flex h-[3.25rem] items-center rounded-lg px-5 font-bold active:scale-95"
+	>
+		<div class="text-md flex flex-row">
+			<Home class="mb-1 mr-2" width="20" heigth="20" />
+			{siteConfig.title}
+		</div>
+	</a>
+
+	<!-- LINKS - CENTER-->
+	<div class="hidden md:flex">
+		{
+			links.map((l) => {
+				return (
+					<a
+						aria-label={l.name}
+						href={l.url}
+						target={l.external ? "_blank" : null}
+						class="btn-ghost flex h-11 items-center rounded-lg px-5 font-bold active:scale-95"
+					>
+						<div class="flex items-center">
+							{l.name}
+							{l.external && (
+								<ArrowUpSquare class="ml-1 -translate-y-[1px] text-black/[0.2] transition dark:text-white/[0.2]" />
+							)}
+						</div>
+					</a>
+				)
+			})
+		}
+	</div>
+
+	<!-- THEME/SEARCH - RIGHT -->
+	<div class="flex md:mx-4">
+		<!-- TODO <SearchPanel client:load>-->
+
+		<!-- THEME CONTROLLER -->
+		<!-- eslint-disable-next-line astro/jsx-a11y/label-has-associated-control -->
+		<label class="btn-ghost swap swap-rotate rounded-md">
+			<!-- this hidden checkbox controls the state -->
+			<input theme-controller id="theme-controller" type="checkbox" />
+			<Sun class="swap-on h-8 w-8" />
+			<Moon class="swap-off h-8 w-8" />
+		</label>
+
+		<!-- DROPDOWN RESPONSIVE -->
+		<details class="dropdown">
+			<summary
+				aria-label="Menu"
+				class="btn-ghost h-11 w-11 rounded-lg active:scale-90 md:hidden"
+				id="nav-menu-switch"
+			>
+				<Menu class="h-8 w-8" />
+			</summary>
+			<NavMenuPanel class="dropdown-content rounded-box shadow" links={links} />
+		</details>
+	</div>
+</Section>
+
+<script>
+	function switchTheme() {
+		if (localStorage.theme === "dark") {
+			document.documentElement.classList.remove("dark")
+			localStorage.theme = "light"
+		} else {
+			document.documentElement.classList.add("dark")
+			localStorage.theme = "dark"
+		}
+	}
+
+	const inputTheme = document.querySelector("[theme-controller]")
+	inputTheme?.addEventListener("change", () => switchTheme())
+</script>

@@ -1,0 +1,41 @@
+---
+import Footer from "@components/Footer.astro"
+import Navbar from "@components/Navbar.astro"
+import SideBar from "@components/widget/SideBar.astro"
+import Layout from "@layouts/Layout.astro"
+
+interface Props {
+	title: string
+}
+
+const { title } = Astro.props
+---
+
+<Layout title={title}>
+	<!-- GRID -->
+	<div
+		class="relative mx-auto grid min-h-screen max-w-6xl grid-cols-[17.5rem_auto] grid-rows-[auto_auto_1fr_auto] gap-4 px-0 md:px-4 lg:grid-rows-[auto_1fr_auto]"
+	>
+		<!-- NAVBAR WRAPPER -->
+		<div id="top-row" class="z-50 col-span-2 animate-fade-in-down grid-rows-1">
+			<Navbar />
+		</div>
+		<!-- SIDEBAR -->
+		<SideBar
+			class="col-span-2 row-start-3 row-end-4 animate-fade-in-right lg:col-span-1 lg:row-start-2 lg:row-end-3 lg:max-w-[17.5rem]"
+		/>
+		<!-- MAIN WRAPPER -->
+		<div
+			id="content-wrapper"
+			class="col-span-2 row-start-2 row-end-3 animate-fade-in-down overflow-hidden lg:col-span-1"
+		>
+			<main id="posts">
+				<slot />
+			</main>
+		</div>
+		<!-- FOOTER WRAPPER -->
+		<div id="footer" class="col-span-2 mt-4 animate-fade-in-up grid-rows-3">
+			<Footer />
+		</div>
+	</div>
+</Layout>

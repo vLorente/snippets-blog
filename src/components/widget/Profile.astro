@@ -1,0 +1,60 @@
+---
+import Section from "@components/Section.astro"
+import { profileConfig } from "@config"
+import ProfileIcon from "@icons/ProfileIcon.astro"
+import SocialIcon from "@icons/SocialIcon.astro"
+import { Image } from "astro:assets"
+
+const config = profileConfig
+---
+
+<Section>
+	<div class="card-base">
+		<a
+			aria-label="Go to About Page"
+			href="/about"
+			class="group relative mx-auto mb-3 mt-4 block max-w-[240px] overflow-hidden
+			 rounded-xl active:scale-95 lg:mx-3 lg:mt-3 lg:max-w-none"
+		>
+			<div
+				class="pointer-events-none absolute z-50 flex h-full
+				w-full items-center justify-center transition group-hover:bg-black/30 group-active:bg-black/50"
+			>
+				<ProfileIcon
+					class="text-white opacity-0 transition group-hover:opacity-100"
+					width="48"
+					heigth="48"
+				/>
+			</div>
+			<div class="mx-auto h-full lg:mt-0 lg:w-full">
+				<Image
+					src={config.avatar}
+					alt="Profile Image of the Author"
+					class="aspect-square h-full w-full object-cover object-center"
+				/>
+			</div>
+		</a>
+		<div
+			class="mb-1 text-center text-xl font-bold transition dark:text-neutral-50"
+		>
+			{config.name}
+		</div>
+		<div class="mx-auto mb-2 h-1 w-5 rounded-full bg-[var(--primary)] transition">
+		</div>
+		<div class="mb-2.5 text-center text-neutral-400 transition">{config.bio}</div>
+		<div class="mx-2 mb-4 flex justify-center gap-2">
+			{
+				config.links.map((item) => (
+					<a
+						aria-label={item.name}
+						href={item.url}
+						target="_blank"
+						class="btn-regular h-10 w-10 rounded-lg active:scale-90"
+					>
+						<SocialIcon icon={item.icon} class="text-neutral-400" />
+					</a>
+				))
+			}
+		</div>
+	</div>
+</Section>

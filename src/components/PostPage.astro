@@ -1,0 +1,12 @@
+---
+const className = Astro.props.class
+---
+
+<div
+	class:list={[
+		"flex flex-col items-center justify-center bg-blue-600",
+		className,
+	]}
+>
+	<h1 class="size-8">POST PAGE</h1>
+</div>
