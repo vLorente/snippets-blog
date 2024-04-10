@@ -31,7 +31,7 @@ let links: NavBarLink[] = navBarConfig.links.map(
 	<!-- HOME TITLE BUTTON - LEFT -->
 	<a
 		href="/"
-		class="btn-ghost flex h-[3.25rem] items-center rounded-lg px-5 font-bold active:scale-95"
+		class="btn-ghost mx-3 flex h-[3.25rem] items-center rounded-lg px-5 font-bold active:scale-95"
 	>
 		<div class="text-md flex flex-row">
 			<Home class="mb-1 mr-2" width="20" heigth="20" />
@@ -68,9 +68,14 @@ let links: NavBarLink[] = navBarConfig.links.map(
 
 		<!-- THEME CONTROLLER -->
 		<!-- eslint-disable-next-line astro/jsx-a11y/label-has-associated-control -->
-		<label class="btn-ghost swap swap-rotate rounded-md">
+		<label class="btn-ghost swap swap-rotate h-11 w-11 rounded-md">
 			<!-- this hidden checkbox controls the state -->
-			<input theme-controller id="theme-controller" type="checkbox" />
+			<input
+				theme-controller
+				class="theme-controller"
+				type="checkbox"
+				value="synthwave"
+			/>
 			<Sun class="swap-on h-8 w-8" />
 			<Moon class="swap-off h-8 w-8" />
 		</label>
@@ -90,6 +95,14 @@ let links: NavBarLink[] = navBarConfig.links.map(
 </Section>
 
 <script>
+	function loadTheme() {
+		if (localStorage.theme === "dark") {
+			document.documentElement.classList.add("dark")
+		} else {
+			document.documentElement.classList.remove("dark")
+		}
+	}
+
 	function switchTheme() {
 		if (localStorage.theme === "dark") {
 			document.documentElement.classList.remove("dark")
@@ -100,6 +113,25 @@ let links: NavBarLink[] = navBarConfig.links.map(
 		}
 	}
 
-	const inputTheme = document.querySelector("[theme-controller]")
-	inputTheme?.addEventListener("change", () => switchTheme())
+	function loadButtonScript() {
+		const inputTheme: HTMLInputElement | null =
+			document.querySelector("[theme-controller]")
+		if (inputTheme) {
+			if (localStorage.theme === "dark") {
+				inputTheme.checked = false
+			} else {
+				inputTheme.checked = true
+			}
+			inputTheme.addEventListener("change", () => switchTheme())
+		}
+	}
+
+	loadButtonScript()
+	document.addEventListener(
+		"astro:after-swap",
+		() => {
+			loadButtonScript()
+		},
+		{ once: false }
+	)
 </script>

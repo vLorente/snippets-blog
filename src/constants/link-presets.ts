@@ -10,7 +10,7 @@ export const LinkPresets: { [key in LinkPreset]: NavBarLink } = {
 		url: "/about",
 	},
 	[LinkPreset.Archive]: {
-		name: "Archivo",
+		name: "Archive",
 		url: "/archive",
 	},
 }
