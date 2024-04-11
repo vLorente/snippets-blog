@@ -1,0 +1,24 @@
+---
+import Markdown from "@components/Markdown.astro"
+import Section from "@components/Section.astro"
+import MainGridLayout from "@layouts/MainGridLayout.astro"
+import { getEntry } from "astro:content"
+
+const aboutPost = await getEntry("spec", "about")
+
+const { Content } = await aboutPost.render()
+---
+
+<MainGridLayout title="About">
+	<Section>
+		<div
+			class="relative flex min-h-32 w-full overflow-hidden rounded-[var(--radius-large)]"
+		>
+			<div class="relative z-10 w-full px-9 py-6">
+				<Markdown class="mt-2">
+					<Content />
+				</Markdown>
+			</div>
+		</div>
+	</Section>
+</MainGridLayout>

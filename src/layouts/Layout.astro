@@ -39,15 +39,15 @@ const { title } = Astro.props
 <script>
 	function loadTheme() {
 		if (
-			localStorage.theme === "dark" ||
+			localStorage.theme === "moon" ||
 			(!("theme" in localStorage) &&
 				window.matchMedia("(prefers-color-scheme: dark)").matches)
 		) {
-			document.documentElement.classList.add("dark")
-			localStorage.theme = "dark"
+			document.documentElement.setAttribute("data-theme", "moon")
+			localStorage.theme = "moon"
 		} else {
-			document.documentElement.classList.remove("dark")
-			localStorage.theme = "light"
+			document.documentElement.setAttribute("data-theme", "sun")
+			localStorage.theme = "sun"
 		}
 	}
 

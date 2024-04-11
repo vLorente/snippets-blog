@@ -1,0 +1,51 @@
+---
+import Moon from "@icons/Moon.astro"
+import Sun from "@icons/Sun.astro"
+---
+
+<!-- eslint-disable-next-line astro/jsx-a11y/label-has-associated-control -->
+<label class="btn-ghost swap swap-rotate h-11 w-11 rounded-md">
+	<!-- this hidden checkbox controls the state -->
+	<input
+		theme-controller
+		class="theme-controller"
+		type="checkbox"
+		value="synthwave"
+	/>
+	<Sun class="swap-on h-8 w-8" />
+	<Moon class="swap-off h-8 w-8" />
+</label>
+
+<script>
+	function switchTheme() {
+		if (localStorage.theme === "moon") {
+			document.documentElement.setAttribute("data-theme", "sun")
+			localStorage.theme = "sun"
+		} else {
+			document.documentElement.setAttribute("data-theme", "moon")
+			localStorage.theme = "moon"
+		}
+	}
+
+	function loadButtonScript() {
+		const inputTheme: HTMLInputElement | null =
+			document.querySelector("[theme-controller]")
+		if (inputTheme) {
+			if (localStorage.theme === "sun") {
+				inputTheme.checked = false
+			} else {
+				inputTheme.checked = true
+			}
+			inputTheme.addEventListener("change", () => switchTheme())
+		}
+	}
+
+	loadButtonScript()
+	document.addEventListener(
+		"astro:after-swap",
+		() => {
+			loadButtonScript()
+		},
+		{ once: false }
+	)
+</script>

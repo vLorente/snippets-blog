@@ -26,13 +26,11 @@ const { links, class: className } = Astro.props
         "
 				target={link.external ? "_blank" : null}
 			>
-				<div class="font-bold text-black/75 transition group-hover:text-[var(--primary)] group-active:text-[var(--primary)] dark:text-white/75">
+				<div class="font-bold transition group-hover:text-[var(--primary)] group-active:text-[var(--primary)] ">
 					{link.name}
 				</div>
 
-				{link.external && (
-					<ArrowUpSquare class="-translate-x-1 text-black/25 transition dark:text-white/25" />
-				)}
+				{link.external && <ArrowUpSquare />}
 			</a>
 		))
 	}

@@ -14,7 +14,7 @@ const { title } = Astro.props
 <Layout title={title}>
 	<!-- GRID -->
 	<div
-		class="relative mx-auto grid min-h-screen max-w-6xl grid-cols-[17.5rem_auto] grid-rows-[auto_auto_1fr_auto] gap-4 px-0 md:px-4 lg:grid-rows-[auto_1fr_auto]"
+		class="relative mx-auto grid min-h-screen max-w-6xl grid-cols-[17.5rem_auto] grid-rows-[auto_auto_1fr_auto] gap-4 md:grid-rows-[auto_1fr_auto] md:px-6"
 	>
 		<!-- NAVBAR WRAPPER -->
 		<div id="top-row" class="z-50 col-span-2 animate-fade-in-down grid-rows-1">
@@ -22,12 +22,12 @@ const { title } = Astro.props
 		</div>
 		<!-- SIDEBAR -->
 		<SideBar
-			class="col-span-2 row-start-3 row-end-4 animate-fade-in-right lg:col-span-1 lg:row-start-2 lg:row-end-3 lg:max-w-[17.5rem]"
+			class="col-span-2 row-start-3 row-end-4 animate-fade-in-right md:col-span-1 md:row-start-2 md:row-end-3 md:max-w-[17.5rem]"
 		/>
 		<!-- MAIN WRAPPER -->
 		<div
 			id="content-wrapper"
-			class="col-span-2 row-start-2 row-end-3 animate-fade-in-down overflow-hidden lg:col-span-1"
+			class="col-span-2 row-start-2 row-end-3 animate-fade-in-down overflow-hidden md:col-span-1"
 		>
 			<main id="posts">
 				<slot />
