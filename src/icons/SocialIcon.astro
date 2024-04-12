@@ -1,31 +1,18 @@
 ---
-import type { SocialIconName } from "@types/icon"
+import type { SocialIconName } from "@/types/icon"
 import Code from "./Code.astro"
 import Github from "./Github.astro"
 import LinkedIn from "./LinkedIn.astro"
 
 interface Props {
 	icon: SocialIconName
-	width?: string
-	heigth?: string
+	size?: string
 	class?: string
 }
 
-const { icon, width = "24", heigth = "24", class: className } = Astro.props
+const { icon, size = "24", class: className } = Astro.props
 ---
 
-{
-	icon === "github" && (
-		<Github width={width} heigth={heigth} class:list={[className]} />
-	)
-}
-{
-	icon === "code" && (
-		<Code width={width} heigth={heigth} class:list={[className]} />
-	)
-}
-{
-	icon === "linkedin" && (
-		<LinkedIn width={width} heigth={heigth} class:list={[className]} />
-	)
-}
+{icon === "github" && <Github size={size} class:list={[className]} />}
+{icon === "code" && <Code size={size} class:list={[className]} />}
+{icon === "linkedin" && <LinkedIn size={size} class:list={[className]} />}

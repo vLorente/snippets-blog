@@ -1,19 +1,18 @@
 ---
 interface Props {
-	width?: string
-	heigth?: string
+	size?: string
 	class?: string
 }
 
-const { width = "36", heigth = "36", class: className } = Astro.props
+const { size = "24", class: className } = Astro.props
 ---
 
 <svg
 	class:list={[className]}
 	aria-hidden="true"
 	xmlns="http://www.w3.org/2000/svg"
-	width={width}
-	height={heigth}
+	width={size}
+	height={size}
 	fill="none"
 	viewBox="0 0 24 24"
 >

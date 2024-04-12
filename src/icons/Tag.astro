@@ -8,7 +8,7 @@ const { size = "24", class: className } = Astro.props
 ---
 
 <svg
-	class:list={className}
+	class:list={[className]}
 	aria-hidden="true"
 	xmlns="http://www.w3.org/2000/svg"
 	width={size}
@@ -21,6 +21,6 @@ const { size = "24", class: className } = Astro.props
 		stroke-linecap="round"
 		stroke-linejoin="round"
 		stroke-width="2"
-		d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5"
+		d="M15.583 8.445h.01M10.86 19.71l-6.573-6.63a.993.993 0 0 1 0-1.4l7.329-7.394A.98.98 0 0 1 12.31 4l5.734.007A1.968 1.968 0 0 1 20 5.983v5.5a.992.992 0 0 1-.316.727l-7.44 7.5a.974.974 0 0 1-1.384.001Z"
 	></path>
 </svg>
