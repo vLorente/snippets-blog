@@ -1,5 +1,8 @@
 ---
 import PostMetadata from "@components/PostMetadata.astro"
+import { Image } from "astro:assets"
+import Section from "./Section.astro"
+import ChevronRight from "./icons/ChevronRight.astro"
 
 interface Props {
 	class?: string
@@ -9,19 +12,21 @@ interface Props {
 	date: Date
 	tags: string[]
 	category: string
-	image: string
+	image: ImageMetadata
 	description: string
 }
 
-const { title, url, date, tags, category, image, description } = Astro.props
+const { entry, title, url, date, tags, category, image, description } =
+	Astro.props
 
 const className = Astro.props.class
-const hasCover = image !== undefined && image !== null && image !== ""
+const hasCover = image !== undefined && image !== null
+const coverWidth = "28%"
 ---
 
-<div
+<Section
 	class:list={[
-		"relative flex w-full flex-col-reverse overflow-hidden rounded-lg md:flex-col",
+		"relative flex w-full flex-col-reverse overflow-hidden md:flex-col",
 		className,
 	]}
 >
@@ -34,11 +39,88 @@ const hasCover = image !== undefined && image !== null && image !== ""
 			},
 		]}
 	>
+		<!-- title -->
+		<a
+			href={url}
+			class="text-90 mb-3 block w-full text-3xl font-bold transition
+				before:absolute before:left-[18px]
+				before:top-[35px] before:hidden
+				before:h-5 before:w-1 before:rounded-md before:bg-primary
+				hover:text-info md:before:block"
+		>
+			{title}<ChevronRight
+				class="inline -translate-y-[0.15rem] text-[var(--primary)] md:hidden"
+				size="28"
+			/>
+		</a>
+
+		<!-- metadata -->
 		<PostMetadata
 			date={date}
 			tags={tags}
 			category={category}
 			hideTagsForMobile={true}
+			class:list={{ "mb-4": description, "mb-6": !description }}
 		/>
+
+		<!-- description -->
+		<div class="text-75 mb-3.5 transition">
+			{description}
+		</div>
+
+		<!-- word count and read time  -->
+		<!-- <div class="flex gap-4 text-sm text-black/30 transition dark:text-white/30">
+			<div>{remarkPluginFrontmatter.words} {" " + i18n(I18nKey.wordsCount)}</div>
+			<div>|</div>
+			<div>
+				{remarkPluginFrontmatter.minutes}
+				{" " + i18n(I18nKey.minutesCount)}
+			</div>
+		</div> -->
 	</div>
+	{
+		hasCover && (
+			<a
+				href={url}
+				aria-label={title}
+				class:list={[
+					"group",
+					"mx-4 -mb-2 mt-4 max-h-[20vh] md:mx-0 md:mb-0 md:mt-0 md:max-h-none",
+					"relative overflow-hidden rounded-xl active:scale-95 md:absolute md:bottom-3 md:right-3 md:top-3 md:w-[var(--coverWidth)]",
+				]}
+			>
+				<div class="pointer-events-none absolute z-10 h-full w-full transition group-hover:bg-black/30 group-active:bg-black/50" />
+				<div class="pointer-events-none absolute z-20 flex h-full w-full items-center justify-center ">
+					<ChevronRight class="text-5xl opacity-0 transition group-hover:opacity-100" />
+				</div>
+				<Image
+					src={image}
+					alt="Cover of article"
+					class="h-full w-full object-cover object-center"
+				/>
+			</a>
+		)
+	}
+
+	{
+		!hasCover && (
+			<a
+				href={url}
+				aria-label={title}
+				class="absolute bottom-3 right-3 top-3 hidden
+					w-[3.25rem] items-center rounded-xl bg-secondary/30
+					hover:bg-secondary/10
+					active:scale-95 md:flex
+					"
+			>
+				<ChevronRight class="mx-auto text-4xl transition" />
+			</a>
+		)
+	}
+</Section>
+<div
+	class="mx-6 border-t-[1px] border-dashed border-black/10 transition last:border-t-0 md:hidden dark:border-white/[0.15]"
+>
 </div>
+
+<style define:vars={{ coverWidth }}></style>

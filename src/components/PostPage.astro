@@ -1,14 +1,13 @@
 ---
 import { getPostUrlBySlug } from "@utils/url-utils"
 import PostCard from "./PostCard.astro"
-import Section from "./Section.astro"
 
 const { posts } = Astro.props
-
-console.log(posts)
 ---
 
-<Section class="flex items-center justify-center">
+<div
+	class="mb-4 flex flex-col py-1 transition md:gap-4 md:bg-transparent md:py-0"
+>
 	{
 		posts.map(
 			(entry: {
@@ -18,7 +17,7 @@ console.log(posts)
 					tags: string[]
 					category: string
 					date: Date
-					image: string
+					image: ImageMetadata
 					description: string
 				}
 				slug: string
@@ -38,4 +37,4 @@ console.log(posts)
 			}
 		)
 	}
-</Section>
+</div>
