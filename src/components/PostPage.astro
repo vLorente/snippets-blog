@@ -1,12 +1,41 @@
 ---
-const className = Astro.props.class
+import { getPostUrlBySlug } from "@utils/url-utils"
+import PostCard from "./PostCard.astro"
+import Section from "./Section.astro"
+
+const { posts } = Astro.props
+
+console.log(posts)
 ---
 
-<div
-	class:list={[
-		"flex flex-col items-center justify-center bg-blue-600",
-		className,
-	]}
->
-	<h1 class="size-8">POST PAGE</h1>
-</div>
+<Section class="flex items-center justify-center p-4">
+	{
+		posts.map(
+			(entry: {
+				data: {
+					draft: boolean
+					title: string
+					tags: string[]
+					category: string
+					date: Date
+					image: string
+					description: string
+				}
+				slug: string
+			}) => {
+				return (
+					<PostCard
+						entry={entry}
+						title={entry.data.title}
+						tags={entry.data.tags}
+						category={entry.data.category}
+						date={entry.data.date}
+						url={getPostUrlBySlug(entry.slug)!}
+						image={entry.data.image}
+						description={entry.data.description}
+					/>
+				)
+			}
+		)
+	}
+</Section>

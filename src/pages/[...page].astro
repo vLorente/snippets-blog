@@ -2,10 +2,13 @@
 import Pagination from "@components/control/Pagination.astro"
 import PostPage from "@components/PostPage.astro"
 import MainGridLayout from "@layouts/MainGridLayout.astro"
+import { getCollection } from "astro:content"
+
+const allPosts = await getCollection("posts")
 ---
 
 <MainGridLayout title="Vlorente Snippets">
-	<PostPage />
+	<PostPage posts={allPosts} />
 	<Pagination />
 </MainGridLayout>
 

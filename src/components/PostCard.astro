@@ -1,0 +1,33 @@
+---
+import PostMetadata from "@components/PostMetadata.astro"
+
+interface Props {
+	class?: string
+	entry: any
+	title: string
+	url: string
+	date: Date
+	tags: string[]
+	category: string
+	image: string
+	description: string
+}
+
+const { title, url, date, tags, category, image, description } = Astro.props
+
+const className = Astro.props.class
+---
+
+<div
+	class:list={[
+		"relative flex w-full flex-col-reverse overflow-hidden rounded-lg md:flex-col",
+		className,
+	]}
+>
+	<PostMetadata
+		date={date}
+		tags={tags}
+		category={category}
+		hideTagsForMobile={true}
+	/>
+</div>
