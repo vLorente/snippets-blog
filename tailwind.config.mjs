@@ -34,8 +34,8 @@ export default {
 			},
 			{
 				moon: {
-					"primary": "#ff008b",
-					"secondary": "#777f00",
+					"primary": "#0ea5e9",
+					"secondary": "#c084fc",
 					"accent": "#008bff",
 					"neutral": "#001824",
 					"base-100": "#222b3f",
