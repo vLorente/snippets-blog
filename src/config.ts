@@ -39,10 +39,10 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Home,
 		LinkPreset.Archive,
 		LinkPreset.About,
-		{
-			name: "Portfolio",
-			url: "https://vlorente.dev",
-			external: true,
-		},
+		// {
+		// 	name: "Portfolio",
+		// 	url: "https://vlorente.dev",
+		// 	external: true,
+		// },
 	],
 }
