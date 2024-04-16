@@ -2,14 +2,14 @@
 import { getPostUrlBySlug } from "@utils/url-utils"
 import PostCard from "./PostCard.astro"
 
-const { posts } = Astro.props
+const { page } = Astro.props
 ---
 
 <div
 	class="mb-4 flex flex-col py-1 transition md:gap-4 md:bg-transparent md:py-0"
 >
 	{
-		posts.map(
+		page.data.map(
 			(entry: {
 				data: {
 					draft: boolean

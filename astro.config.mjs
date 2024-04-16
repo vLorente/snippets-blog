@@ -7,7 +7,7 @@ import { defineConfig } from "astro/config"
 // https://astro.build/config
 export default defineConfig({
 	integrations: [react(), tailwind()],
-	output: "server",
+	output: "hybrid",
 	adapter: vercel({
 		webAnalytics: {
 			enabled: true

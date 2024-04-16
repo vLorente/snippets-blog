@@ -1,22 +1,27 @@
 ---
 import Markdown from "@components/Markdown.astro"
+import Section from "@components/Section.astro"
 import MainGridLayout from "@layouts/MainGridLayout.astro"
 import { getCollection } from "astro:content"
 
+// 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
-	const blogEntries = await getCollection("posts")
-	return blogEntries.map((entry) => ({
+	const postEntries = await getCollection("posts")
+	return postEntries.map((entry) => ({
 		params: { slug: entry.slug },
 		props: { entry },
 	}))
 }
 
+// 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props
 const { Content } = await entry.render()
 ---
 
 <MainGridLayout title={entry.data.title}>
-	<Markdown frontmatter={entry.data}>
-		<Content />
-	</Markdown>
+	<Section class:list={["p-4"]}>
+		<Markdown>
+			<Content />
+		</Markdown>
+	</Section>
 </MainGridLayout>
