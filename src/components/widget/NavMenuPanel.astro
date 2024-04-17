@@ -22,11 +22,11 @@ const { links, class: className } = Astro.props
 			<a
 				href={link.url}
 				class="group flex items-center justify-between gap-8 rounded-lg py-2 pl-3 pr-1
-            transition hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)]
+            transition hover:bg-black/30 active:bg-primary/30
         "
 				target={link.external ? "_blank" : null}
 			>
-				<div class="font-bold transition group-hover:text-[var(--primary)] group-active:text-[var(--primary)] ">
+				<div class="font-bold transition group-hover:text-primary group-active:text-primary ">
 					{link.name}
 				</div>
 
