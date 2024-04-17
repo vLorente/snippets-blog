@@ -1,0 +1,42 @@
+---
+import ButtonTag from "@components/control/ButtonTag.astro"
+import Section from "@components/Section.astro"
+import WidgetWrapper from "@components/widget/WidgetWrapper.astro"
+import { getTagList } from "@utils/content-utils"
+
+const tags = await getTagList()
+
+const COLLAPSED_HEIGHT = "7.5rem"
+
+const isCollapsed = tags.length >= 20
+
+interface Props {
+	class?: string
+	style?: string
+}
+const className = Astro.props.class
+const style = Astro.props.style
+---
+
+<Section class:list={["override-hidden pb-4 transition", className]}>
+	<WidgetWrapper
+		name="Tags"
+		id="tags"
+		isCollapsed={isCollapsed}
+		collapsedHeight={COLLAPSED_HEIGHT}
+		style={style}
+	>
+		<div class="flex flex-wrap gap-2">
+			{
+				tags.map((t) => (
+					<ButtonTag
+						href={`/archive/tag/${t.name}`}
+						label={`View all posts with the ${t.name} tag`}
+					>
+						{t.name}
+					</ButtonTag>
+				))
+			}
+		</div>
+	</WidgetWrapper>
+</Section>

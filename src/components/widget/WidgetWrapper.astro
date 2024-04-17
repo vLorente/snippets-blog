@@ -1,0 +1,78 @@
+---
+import DotsHoriz from "@components/icons/DotsHoriz.astro"
+
+interface Props {
+	id: string
+	name?: string
+	isCollapsed?: boolean
+	collapsedHeight?: string
+	class?: string
+}
+const props = Astro.props
+const { id, name, isCollapsed, collapsedHeight } = Astro.props
+const className = Astro.props.class
+---
+
+<widget-wrapper
+	data-id={id}
+	data-is-collapsed={isCollapsed}
+	class:list={["transitoin override-hidden", className]}
+>
+	<div
+		class="relative mb-2 ml-8 mt-4 text-lg font-bold text-neutral-900 transition before:absolute
+        before:left-[-16px] before:top-[5.5px] before:h-4 before:w-1
+        before:rounded-md before:bg-primary dark:text-neutral-100"
+	>
+		{name}
+	</div>
+	<div
+		id={id}
+		class:list={[
+			"collapse-wrapper overflow-hidden px-4",
+			{ collapsed: isCollapsed },
+		]}
+	>
+		<slot />
+	</div>
+	{
+		isCollapsed && (
+			<div class="expand-btn -mb-2 px-4">
+				<button class="btn-plain h-9 w-full rounded-lg">
+					<div class="flex -translate-x-2 items-center justify-center gap-2 text-primary">
+						<DotsHoriz size="28" /> More
+					</div>
+				</button>
+			</div>
+		)
+	}
+</widget-wrapper>
+
+<style define:vars={{ collapsedHeight }}>
+	.collapsed {
+		height: var(--collapsedHeight);
+	}
+</style>
+
+<script>
+	class WidgetWrapper extends HTMLElement {
+		constructor() {
+			super()
+
+			const isCollapsed: boolean = this.dataset.isCollapsed
+				? this.dataset.isCollapsed === "true"
+				: false
+
+			if (isCollapsed) return
+
+			const id = this.dataset.id
+			const btn = this.querySelector(".expand-btn")!
+			const wrapper = this.querySelector(`#${id}`)
+			btn.addEventListener("click", () => {
+				wrapper!.classList.remove("collapsed")
+				btn.classList.add("hidden")
+			})
+		}
+	}
+
+	customElements.define("widget-wrapper", WidgetWrapper)
+</script>

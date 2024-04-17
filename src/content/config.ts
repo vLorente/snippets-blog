@@ -4,6 +4,7 @@ const postsCollection = defineCollection({
 	type: "content",
 	schema: ({ image }) =>
 		z.object({
+			draft: z.boolean(),
 			title: z.string(),
 			date: z.date(),
 			description: z.string().optional(),
