@@ -20,9 +20,11 @@ import Sun from "@components/icons/Sun.astro"
 	function switchTheme() {
 		if (localStorage.theme === "moon") {
 			document.documentElement.setAttribute("data-theme", "sun")
+			document.documentElement.classList.remove("dark")
 			localStorage.theme = "sun"
 		} else {
 			document.documentElement.setAttribute("data-theme", "moon")
+			document.documentElement.classList.add("dark")
 			localStorage.theme = "moon"
 		}
 	}
