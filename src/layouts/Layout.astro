@@ -19,41 +19,40 @@ const { title } = Astro.props
 	</head>
 	<body>
 		<slot />
-	</body>
-</html>
-<style is:global>
-	code {
-		font-family:
-			"JetBrains Mono Variable",
-			ui-monospace,
-			SFMono-Regular,
-			Menlo,
-			Monaco,
-			Consolas,
-			Liberation Mono,
-			Courier New,
-			monospace;
-	}
-</style>
-
-<script>
-	function loadTheme() {
-		if (
-			localStorage.theme === "moon" ||
-			(!("theme" in localStorage) &&
-				window.matchMedia("(prefers-color-scheme: dark)").matches)
-		) {
-			document.documentElement.setAttribute("data-theme", "moon")
-			localStorage.theme = "moon"
-		} else {
-			document.documentElement.setAttribute("data-theme", "sun")
-			localStorage.theme = "sun"
+	</body><style is:global>
+		code {
+			font-family:
+				"JetBrains Mono Variable",
+				ui-monospace,
+				SFMono-Regular,
+				Menlo,
+				Monaco,
+				Consolas,
+				Liberation Mono,
+				Courier New,
+				monospace;
 		}
-	}
+	</style>
 
-	function init() {
-		loadTheme()
-	}
+	<script>
+		function loadTheme() {
+			if (
+				localStorage.theme === "moon" ||
+				(!("theme" in localStorage) &&
+					window.matchMedia("(prefers-color-scheme: dark)").matches)
+			) {
+				document.documentElement.setAttribute("data-theme", "moon")
+				localStorage.theme = "moon"
+			} else {
+				document.documentElement.setAttribute("data-theme", "sun")
+				localStorage.theme = "sun"
+			}
+		}
 
-	init()
-</script>
+		function init() {
+			loadTheme()
+		}
+
+		init()
+	</script>
+</html>

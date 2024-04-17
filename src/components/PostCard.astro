@@ -22,6 +22,8 @@ const { entry, title, url, date, tags, category, image, description } =
 const className = Astro.props.class
 const hasCover = image !== undefined && image !== null
 const coverWidth = "28%"
+
+const { remarkPluginFrontmatter } = await entry.render()
 ---
 
 <Section
@@ -69,14 +71,14 @@ const coverWidth = "28%"
 		</div>
 
 		<!-- word count and read time  -->
-		<!-- <div class="flex gap-4 text-sm text-black/30 transition dark:text-white/30">
-			<div>{remarkPluginFrontmatter.words} {" " + i18n(I18nKey.wordsCount)}</div>
+		<div class="flex gap-4 text-xs text-info/40 transition">
+			<div>{remarkPluginFrontmatter.words} {" " + "words"}</div>
 			<div>|</div>
 			<div>
 				{remarkPluginFrontmatter.minutes}
-				{" " + i18n(I18nKey.minutesCount)}
+				{" " + "minutes"}
 			</div>
-		</div> -->
+		</div>
 	</div>
 	{
 		hasCover && (
