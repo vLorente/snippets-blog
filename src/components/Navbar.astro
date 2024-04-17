@@ -30,9 +30,9 @@ let links: NavBarLink[] = navBarConfig.links.map(
 	<!-- HOME TITLE BUTTON - LEFT -->
 	<a
 		href="/"
-		class="btn-ghost mx-3 flex h-[3.25rem] items-center rounded-lg px-5 font-bold active:scale-95"
+		class="btn-ghost mx-3 flex h-[3.25rem] items-center rounded-lg px-5 font-bold active:scale-95 active:bg-primary/30"
 	>
-		<div class="text-md flex flex-row">
+		<div class="text-md flex flex-row text-primary">
 			<Home class="mb-1 mr-2" size="24" />
 			{siteConfig.title}
 		</div>
@@ -47,7 +47,7 @@ let links: NavBarLink[] = navBarConfig.links.map(
 						aria-label={l.name}
 						href={l.url}
 						target={l.external ? "_blank" : null}
-						class="btn-ghost flex h-11 items-center rounded-lg px-5 font-bold active:scale-95"
+						class="btn-ghost flex h-11 items-center rounded-lg px-5 font-bold hover:text-primary active:scale-95 active:bg-primary/30"
 					>
 						<div class="flex items-center">
 							{l.name}

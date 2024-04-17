@@ -7,7 +7,7 @@ import {
 import avatar from "public/images/avatar.webp"
 
 export const siteConfig: SiteConfig = {
-	title: "vLorente Snippets",
+	title: "vLorente Blog",
 	subtitle: "Repositorio de recortes de código y tutoriales",
 }
 
