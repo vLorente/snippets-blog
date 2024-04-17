@@ -1,7 +1,11 @@
 ---
+import Bars from "@components/icons/Bars.astro"
+import Clock from "@components/icons/Clock.astro"
 import Markdown from "@components/Markdown.astro"
+import PostMetadata from "@components/PostMetadata.astro"
 import Section from "@components/Section.astro"
 import MainGridLayout from "@layouts/MainGridLayout.astro"
+import { Image } from "astro:assets"
 import { getCollection } from "astro:content"
 
 export async function getStaticPaths() {
@@ -13,16 +17,90 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props
-const { Content } = await entry.render()
+const { Content, remarkPluginFrontmatter } = await entry.render()
 ---
 
 <MainGridLayout title={entry.data.title}>
-	<Section class:list={["p-4"]}>
-		<!-- HEADER -->
+	<Section class:list={["relative mb-4 flex w-full overflow-hidden"]}>
+		<div
+			id="post-container"
+			class:list={[
+				"relative z-10 w-full overflow-hidden rounded-md px-6 pb-4 pt-6 transition md:px-9",
+				{},
+			]}
+		>
+			<!-- HEADER -->
+			<!-- word count and reading time -->
+			<div class="mb-3 flex flex-row gap-5">
+				<div class="flex flex-row items-center">
+					<div
+						class="mr-2 flex h-6 w-6 items-center justify-center rounded-md bg-black/10 text-primary/50 transition dark:bg-white/10"
+					>
+						<Bars />
+					</div>
+					<div class="text-xs">
+						{remarkPluginFrontmatter.words}
+						{" " + "words"}
+					</div>
+				</div>
+				<div class="flex flex-row items-center">
+					<div
+						class="mr-2 flex h-6 w-6 items-center justify-center rounded-md bg-black/5 text-primary/50 transition dark:bg-white/10"
+					>
+						<Clock />
+					</div>
+					<div class="text-xs">
+						{remarkPluginFrontmatter.minutes}
+						{" " + "minutes"}
+					</div>
+				</div>
+			</div>
 
-		<!-- BODY -->
-		<Markdown>
-			<Content />
-		</Markdown>
+			<!-- title -->
+			<div class="onload-animation relative">
+				<div
+					data-pagefind-body
+					data-pagefind-weight="10"
+					data-pagefind-meta="title"
+					class="mb-3 block w-full text-3xl font-bold
+					text-black/90 transition
+					before:absolute before:left-[-1.125rem]
+					before:top-[0.75rem] before:h-5 before:rounded-md before:bg-primary
+					md:text-[2.5rem]/[2.75rem] md:before:w-1 dark:text-white/90"
+				>
+					{entry.data.title}
+				</div>
+			</div>
+
+			<!-- metadata -->
+			<div class="onload-animation">
+				<PostMetadata
+					class="mb-5"
+					date={entry.data.date}
+					tags={entry.data.tags || []}
+					category={entry.data.category || ""}
+				/>
+				{
+					!entry.data.image && (
+						<div class="mb-5 border-b-[1px] border-dashed border-[var(--line-divider)]" />
+					)
+				}
+			</div>
+			<!-- always show cover as long as it has one -->
+
+			{
+				entry.data.image && (
+					<Image
+						src={entry.data.image}
+						alt="Post Cover"
+						class="banner-container onload-animation mb-8 rounded-xl"
+					/>
+				)
+			}
+			<!-- BODY -->
+			<Markdown>
+				<Content />
+			</Markdown>
+		</div>
 	</Section>
 </MainGridLayout>
