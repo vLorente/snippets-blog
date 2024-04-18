@@ -12,10 +12,8 @@ const isCollapsed = tags.length >= 20
 
 interface Props {
 	class?: string
-	style?: string
 }
 const className = Astro.props.class
-const style = Astro.props.style
 ---
 
 <Section class:list={["override-hidden pb-4 transition", className]}>
@@ -24,7 +22,6 @@ const style = Astro.props.style
 		id="tags"
 		isCollapsed={isCollapsed}
 		collapsedHeight={COLLAPSED_HEIGHT}
-		style={style}
 	>
 		<div class="flex flex-wrap gap-2">
 			{
