@@ -54,14 +54,15 @@ const { remarkPluginFrontmatter } = await entry.render()
 		<!-- title -->
 		<a
 			href={url}
-			class="text-90 mb-3 block w-full text-3xl font-bold transition
+			class="mb-3 block w-full text-2xl font-bold transition
 				before:absolute before:left-[18px]
 				before:top-[35px] before:hidden
 				before:h-5 before:w-1 before:rounded-md before:bg-primary
 				hover:text-info md:before:block"
 		>
-			{title}<ChevronRight
-				class="inline -translate-y-[0.15rem] text-[var(--primary)] md:hidden"
+			{title}
+			<ChevronRight
+				class="inline -translate-y-[0.15rem] text-primary md:hidden"
 				size="28"
 			/>
 		</a>
