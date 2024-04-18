@@ -2,7 +2,7 @@
 
 ## ✨ TODO
 
-- [ ] Animaciones y transiciones de página fluidas
+- [x] Animaciones y transiciones de página fluidas
 - [x] Light / dark mode
 - [x] Responsive design
 - [ ] Comments
