@@ -3,6 +3,7 @@ import Pagination from "@components/control/Pagination.astro"
 import PostPage from "@components/PostPage.astro"
 import { PAGE_SIZE } from "@constants/constants"
 import MainGridLayout from "@layouts/MainGridLayout.astro"
+import { getPaginationDelay } from "@utils/animation-utils"
 import { getSortedPosts } from "@utils/content-utils"
 
 export async function getStaticPaths({ paginate }: { paginate: any }) {
@@ -11,11 +12,15 @@ export async function getStaticPaths({ paginate }: { paginate: any }) {
 }
 
 const { page } = Astro.props
+
+const delay = getPaginationDelay(page)
 ---
 
 <MainGridLayout title="Home">
 	<PostPage page={page} />
-	<Pagination page={page} class="mx-auto" />
+	<Pagination
+		page={page}
+		class="onload-animation mx-auto"
+		style=`animation-delay: calc(var(--content-delay) + ${(delay)*50}ms)`
+	/>
 </MainGridLayout>
-
-<style></style>

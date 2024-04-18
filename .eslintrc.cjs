@@ -77,4 +77,14 @@ module.exports = {
 			parser: "@typescript-eslint/parser",
 		},
 	],
+	ignorePatterns: [
+		"pnpm-lock.yaml",
+		"package-lock.json",
+		"yarn.lock",
+		"node_modules/*",
+		"dist/*",
+		"public/*",
+		"html/*",
+		".vercel /*"
+	]
 }

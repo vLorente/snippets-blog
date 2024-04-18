@@ -1,7 +1,6 @@
 ---
 import PostMetadata from "@components/PostMetadata.astro"
 import { Image } from "astro:assets"
-import Section from "./Section.astro"
 import ChevronRight from "./icons/ChevronRight.astro"
 
 interface Props {
@@ -12,25 +11,36 @@ interface Props {
 	published: Date
 	tags: string[]
 	category: string
-	image: ImageMetadata
+	cover: ImageMetadata
 	description: string
+	style: string
 }
 
-const { entry, title, url, published, tags, category, image, description } =
-	Astro.props
+const {
+	entry,
+	title,
+	url,
+	published,
+	tags,
+	category,
+	cover,
+	description,
+	style,
+} = Astro.props
 
 const className = Astro.props.class
-const hasCover = image !== undefined && image !== null
+const hasCover = cover !== undefined && cover !== null
 const coverWidth = "28%"
 
 const { remarkPluginFrontmatter } = await entry.render()
 ---
 
-<Section
+<div
 	class:list={[
-		"relative flex w-full flex-col-reverse overflow-hidden md:flex-col",
+		"card-base onload-animation relative flex w-full flex-col-reverse md:flex-col",
 		className,
 	]}
+	style={style}
 >
 	<div
 		class:list={[
@@ -98,7 +108,7 @@ const { remarkPluginFrontmatter } = await entry.render()
 					<ChevronRight class="text-5xl opacity-0 transition group-hover:opacity-100" />
 				</div>
 				<Image
-					src={image}
+					src={cover}
 					alt="Cover of article"
 					class="h-full w-full object-cover object-center"
 				/>
@@ -121,7 +131,7 @@ const { remarkPluginFrontmatter } = await entry.render()
 			</a>
 		)
 	}
-</Section>
+</div>
 <div
 	class="mx-6 border-t-[1px] border-dashed border-black/10 transition last:border-t-0 dark:border-white/[0.15] md:hidden"
 >

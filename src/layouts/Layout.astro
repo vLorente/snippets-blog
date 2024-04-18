@@ -29,9 +29,13 @@ if (title) {
 		<slot />
 	</body>
 	<style is:global>
+		@tailwind base;
+		@tailwind components;
+		@tailwind utilities;
 		:root {
 			--line-divider: black(0.08) white(0.08);
 			--radius-large: 1rem;
+			--content-delay: 150ms;
 		}
 		code {
 			font-family:
@@ -44,6 +48,85 @@ if (title) {
 				Liberation Mono,
 				Courier New,
 				monospace;
+		}
+
+		@layer components {
+			.card-base {
+				@apply overflow-hidden rounded-[var(--radius-large)] bg-black/10 transition;
+			}
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			p,
+			a,
+			span,
+			li,
+			ul,
+			ol,
+			blockquote,
+			code,
+			pre,
+			table,
+			th,
+			td,
+			strong {
+				@apply transition;
+			}
+			html.is-changing .transition-fade {
+				@apply transition-all duration-200;
+			}
+			html.is-animating .transition-fade {
+				@apply translate-y-4 opacity-0;
+			}
+		}
+
+		@keyframes fade-in-up {
+			0% {
+				transform: translateY(2rem);
+				opacity: 0;
+			}
+			100% {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+		.onload-animation {
+			opacity: 0;
+			animation: 300ms fade-in-up;
+			animation-fill-mode: forwards;
+		}
+
+		#top-row {
+			animation-delay: 0ms;
+		}
+		#sidebar {
+			animation-delay: 100ms;
+		}
+		#content-wrapper {
+			animation-delay: var(--content-delay);
+		}
+		#footer {
+			animation-delay: 400ms;
+		}
+
+		::-webkit-scrollbar {
+			width: 8px;
+		}
+		::-webkit-scrollbar-track {
+			background: transparent;
+			backdrop-filter: blur(10px);
+			border-radius: 5px;
+		}
+		::-webkit-scrollbar-thumb {
+			background: rgba(0, 0, 0, 0.445);
+			backdrop-filter: blur(10px);
+			border-radius: 5px;
+		}
+		::-webkit-scrollbar-thumb:hover {
+			background: rgba(0, 0, 0, 0.836);
 		}
 	</style>
 

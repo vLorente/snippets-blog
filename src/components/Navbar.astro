@@ -3,7 +3,6 @@ import type { LinkPreset, NavBarLink } from "@/types/config"
 import ArrowUpSquare from "@components/icons/ArrowUpSquare.astro"
 import Home from "@components/icons/Home.astro"
 import Menu from "@components/icons/Menu.astro"
-import Section from "@components/Section.astro"
 import NavMenuPanel from "@components/widget/NavMenuPanel.astro"
 import { navBarConfig, siteConfig } from "@config"
 import { LinkPresets } from "@constants/link-presets"
@@ -21,10 +20,10 @@ let links: NavBarLink[] = navBarConfig.links.map(
 )
 ---
 
-<Section
+<div
 	class:list={[
 		className,
-		"sticky top-0 mx-auto flex h-[4.5rem] items-center justify-between overflow-visible rounded-t-none",
+		"card-base sticky top-0 mx-auto flex h-[4.5rem] items-center justify-between rounded-t-none",
 	]}
 >
 	<!-- HOME TITLE BUTTON - LEFT -->
@@ -82,4 +81,4 @@ let links: NavBarLink[] = navBarConfig.links.map(
 			/>
 		</div>
 	</div>
-</Section>
+</div>

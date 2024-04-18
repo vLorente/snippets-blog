@@ -17,24 +17,24 @@ const { title } = Astro.props
 		class="relative mx-auto grid min-h-screen max-w-6xl grid-cols-[17.5rem_auto] grid-rows-[auto_auto_1fr_auto] gap-4 md:grid-rows-[auto_1fr_auto] md:px-6"
 	>
 		<!-- NAVBAR WRAPPER -->
-		<div id="top-row" class="z-50 col-span-2 animate-fade-in-down grid-rows-1">
+		<div id="top-row" class="onload-animation z-50 col-span-2 grid-rows-1">
 			<Navbar />
 		</div>
 		<!-- SIDEBAR -->
 		<SideBar
-			class="col-span-2 row-start-3 row-end-4 animate-fade-in-right md:col-span-1 md:row-start-2 md:row-end-3 md:max-w-[17.5rem]"
+			class="onload-animation col-span-2 row-start-3 row-end-4 md:col-span-1 md:row-start-2 md:row-end-3 md:max-w-[17.5rem]"
 		/>
 		<!-- MAIN WRAPPER -->
 		<div
 			id="content-wrapper"
-			class="col-span-2 row-start-2 row-end-3 animate-fade-in-down overflow-hidden md:col-span-1"
+			class="col-span-2 row-start-2 row-end-3 overflow-hidden md:col-span-1"
 		>
-			<main id="posts">
+			<main id="swup" class="transition-fade">
 				<slot />
 			</main>
 		</div>
 		<!-- FOOTER WRAPPER -->
-		<div id="footer" class="col-span-2 mt-4 animate-fade-in-up grid-rows-3">
+		<div id="footer" class="onload-animation col-span-2 mt-4 grid-rows-3">
 			<Footer />
 		</div>
 	</div>

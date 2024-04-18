@@ -1,6 +1,5 @@
 ---
 import Markdown from "@components/Markdown.astro"
-import Section from "@components/Section.astro"
 import MainGridLayout from "@layouts/MainGridLayout.astro"
 import { getEntry } from "astro:content"
 
@@ -10,15 +9,13 @@ const { Content } = await aboutPost.render()
 ---
 
 <MainGridLayout title="About">
-	<Section>
-		<div
-			class="relative flex min-h-32 w-full overflow-hidden rounded-[var(--radius-large)]"
-		>
-			<div class="relative z-10 w-full overflow-hidden px-9 py-6 transition">
-				<Markdown class="mt-2">
-					<Content />
-				</Markdown>
-			</div>
+	<div
+		class="card-base relative flex min-h-32 w-full overflow-hidden rounded-[var(--radius-large)]"
+	>
+		<div class="relative z-10 w-full overflow-hidden px-9 py-6 transition">
+			<Markdown class="mt-2">
+				<Content />
+			</Markdown>
 		</div>
-	</Section>
+	</div>
 </MainGridLayout>

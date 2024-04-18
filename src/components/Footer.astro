@@ -1,13 +1,12 @@
 ---
-import Section from "@components/Section.astro"
 import { profileConfig } from "@config"
 
 const linkedInUrl =
 	profileConfig.links.find((item) => item.icon === "linkedin")?.url || ""
 ---
 
-<Section
-	class="mx-auto flex min-h-[4.5rem] max-w-6xl items-center rounded-md rounded-b-none bg-base-300 px-6"
+<div
+	class="card-base mx-auto flex min-h-[4.5rem] max-w-6xl items-center rounded-md rounded-b-none bg-base-300 px-6"
 >
 	<div class="text-xs transition">
 		© {new Date().getFullYear()}
@@ -19,4 +18,4 @@ const linkedInUrl =
 			href={linkedInUrl}>vLorente</a
 		>
 	</div>
-</Section>
+</div>

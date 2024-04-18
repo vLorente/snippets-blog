@@ -4,15 +4,19 @@ import type { Page } from "astro"
 interface Props {
 	page: Page
 	class?: string
+	style?: string
 }
 
-const { class: className, page } = Astro.props
+const { class: className, page, style } = Astro.props
 
 const prevState: string = page.url.prev === undefined ? "btn-disabled" : ""
 const nextState: string = page.url.next === undefined ? "btn-disabled" : ""
 ---
 
-<div class:list={["join flex flex-row justify-center", className]}>
+<div
+	class:list={["join flex flex-row justify-center", className]}
+	style={style}
+>
 	<a
 		href={page.url.prev}
 		aria-label={page.url.prev ? "Previous Page" : null}

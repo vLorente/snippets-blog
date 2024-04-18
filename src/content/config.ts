@@ -17,6 +17,7 @@ const postsCollection = defineCollection({
 			category: z.string().optional(),
 		}),
 })
+
 export const collections = {
 	posts: postsCollection,
 }

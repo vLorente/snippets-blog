@@ -1,5 +1,5 @@
 ---
-import Categories from "@components/Categories.astro"
+import Categories from "@components/widget/Categories.astro"
 import Profile from "@components/widget/Profile.astro"
 import Tags from "@components/widget/Tags.astro"
 
@@ -11,7 +11,9 @@ const className = Astro.props.class
 		<Profile />
 	</div>
 	<div class="sticky top-4 flex w-full flex-col gap-4">
-		<Categories />
-		<Tags />
+		<Categories class="onload-animation" style="animation-delay: 150ms" />
+		<Tags class="onload-animation" style="animation-delay: 200ms" />
 	</div>
 </div>
+
+<style></style>
