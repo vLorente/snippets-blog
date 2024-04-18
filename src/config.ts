@@ -9,6 +9,7 @@ import avatar from "public/images/avatar.webp"
 export const siteConfig: SiteConfig = {
 	title: "vLorente Blog",
 	subtitle: "Repositorio de recortes de código y tutoriales",
+	lang: "es",
 }
 
 export const profileConfig: ProfileConfig = {

@@ -14,6 +14,7 @@ export type ProfileConfig = {
 export type SiteConfig = {
 	title: string
 	subtitle: string
+	lang: string
 }
 
 export enum LinkPreset {

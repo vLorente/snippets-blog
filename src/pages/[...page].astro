@@ -13,7 +13,7 @@ export async function getStaticPaths({ paginate }: { paginate: any }) {
 const { page } = Astro.props
 ---
 
-<MainGridLayout title="vLorente Blog">
+<MainGridLayout title="Home">
 	<PostPage page={page} />
 	<Pagination page={page} class="mx-auto" />
 </MainGridLayout>
