@@ -1,0 +1,16 @@
+---
+import type { Page } from "astro"
+
+interface Props {
+	page: Page
+	class?: string
+}
+
+const { class: className, page } = Astro.props
+---
+
+<div class:list={["join", className]}>
+	<button class="btn join-item">«</button>
+	<button class="btn join-item">Page 22</button>
+	<button class="btn join-item">»</button>
+</div>
