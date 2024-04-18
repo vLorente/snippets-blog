@@ -6,9 +6,9 @@ const postsCollection = defineCollection({
 		z.object({
 			draft: z.boolean(),
 			title: z.string(),
-			date: z.date(),
+			published: z.date(),
 			description: z.string().optional(),
-			image: image()
+			cover: image()
 				.refine((img) => img.width >= 1080, {
 					message: "Cover image must be at least 1080 pixels wide!",
 				})

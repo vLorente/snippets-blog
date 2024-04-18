@@ -66,7 +66,7 @@ const { Content, remarkPluginFrontmatter } = await entry.render()
 					text-black/90 transition
 					before:absolute before:left-[-1.125rem]
 					before:top-[0.75rem] before:h-5 before:rounded-md before:bg-primary
-					md:text-[2.5rem]/[2.75rem] md:before:w-1 dark:text-white/90"
+					dark:text-white/90 md:text-[2.5rem]/[2.75rem] md:before:w-1"
 				>
 					{entry.data.title}
 				</div>
@@ -76,12 +76,12 @@ const { Content, remarkPluginFrontmatter } = await entry.render()
 			<div class="onload-animation">
 				<PostMetadata
 					class="mb-5"
-					date={entry.data.date}
+					published={entry.data.published}
 					tags={entry.data.tags || []}
 					category={entry.data.category || ""}
 				/>
 				{
-					!entry.data.image && (
+					!entry.data.cover && (
 						<div class="mb-5 border-b-[1px] border-dashed border-[var(--line-divider)]" />
 					)
 				}
@@ -89,9 +89,9 @@ const { Content, remarkPluginFrontmatter } = await entry.render()
 			<!-- always show cover as long as it has one -->
 
 			{
-				entry.data.image && (
+				entry.data.cover && (
 					<Image
-						src={entry.data.image}
+						src={entry.data.cover}
 						alt="Post Cover"
 						class="banner-container onload-animation mb-8 rounded-xl"
 					/>

@@ -6,12 +6,12 @@ import Tag from "./icons/Tag.astro"
 
 interface Props {
 	class?: string
-	date: Date
+	published: Date
 	tags: string[]
 	category: string
 	hideTagsForMobile?: boolean
 }
-const { date, tags, category, hideTagsForMobile } = Astro.props
+const { published, tags, category, hideTagsForMobile } = Astro.props
 const className = Astro.props.class
 ---
 
@@ -23,7 +23,7 @@ const className = Astro.props.class
 		<div class="meta-icon">
 			<Calendar size="20" class="text-primary" />
 		</div>
-		<span class="text-50 text-xs font-medium">{formatDateToYYYYMMDD(date)}</span>
+		<span class="text-50 text-xs font-medium">{formatDateToYYYYMMDD(published)}</span>
 	</div>
 	<!-- categories -->
 	<div class="flex items-center">

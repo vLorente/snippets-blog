@@ -9,14 +9,14 @@ interface Props {
 	entry: any
 	title: string
 	url: string
-	date: Date
+	published: Date
 	tags: string[]
 	category: string
 	image: ImageMetadata
 	description: string
 }
 
-const { entry, title, url, date, tags, category, image, description } =
+const { entry, title, url, published, tags, category, image, description } =
 	Astro.props
 
 const className = Astro.props.class
@@ -58,7 +58,7 @@ const { remarkPluginFrontmatter } = await entry.render()
 
 		<!-- metadata -->
 		<PostMetadata
-			date={date}
+			published={published}
 			tags={tags}
 			category={category}
 			hideTagsForMobile={true}
@@ -123,7 +123,7 @@ const { remarkPluginFrontmatter } = await entry.render()
 	}
 </Section>
 <div
-	class="mx-6 border-t-[1px] border-dashed border-black/10 transition last:border-t-0 md:hidden dark:border-white/[0.15]"
+	class="mx-6 border-t-[1px] border-dashed border-black/10 transition last:border-t-0 dark:border-white/[0.15] md:hidden"
 >
 </div>
 

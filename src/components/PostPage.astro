@@ -16,7 +16,7 @@ const { page } = Astro.props
 					title: string
 					tags: string[]
 					category: string
-					date: Date
+					published: Date
 					image: ImageMetadata
 					description: string
 				}
@@ -28,7 +28,7 @@ const { page } = Astro.props
 						title={entry.data.title}
 						tags={entry.data.tags}
 						category={entry.data.category}
-						date={entry.data.date}
+						published={entry.data.published}
 						url={getPostUrlBySlug(entry.slug)!}
 						image={entry.data.image}
 						description={entry.data.description}
