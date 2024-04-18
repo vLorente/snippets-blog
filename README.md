@@ -1,5 +1,15 @@
 # vLorente Blog
 
+## ✨ TODO
+
+- [ ] Animaciones y transiciones de página fluidas
+- [x] Light / dark mode
+- [x] Responsive design
+- [ ] Comments
+- [ ] Search
+- [ ] Tags Page
+- [ ] Categories Page
+
 ## ⚙️ Frontmatter of Posts
 
 ```yaml
