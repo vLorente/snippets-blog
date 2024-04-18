@@ -1,11 +1,11 @@
 ---
 draft: true
 title: Markdown Example
-date: 2023-10-01
+published: 2023-10-01
 description: A simple example of a Markdown blog post.
 tags: [Markdown, Blogging, Demo]
 category: Examples
-image: "./demo-banner.png"
+cover: "./demo-banner.png"
 ---
 
 # An h1 header
