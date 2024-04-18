@@ -7,10 +7,21 @@ interface Props {
 }
 
 const { class: className, page } = Astro.props
+
+const prevState: string = page.url.prev === undefined ? "btn-disabled" : ""
+const nextState: string = page.url.next === undefined ? "btn-disabled" : ""
 ---
 
-<div class:list={["join", className]}>
-	<button class="btn join-item">«</button>
-	<button class="btn join-item">Page 22</button>
-	<button class="btn join-item">»</button>
+<div class:list={["join flex flex-row justify-center", className]}>
+	<a
+		href={page.url.prev}
+		aria-label={page.url.prev ? "Previous Page" : null}
+		class:list={["btn join-item", prevState]}>«</a
+	>
+	<label class="btn join-item">{page.currentPage}</label>
+	<a
+		href={page.url.next}
+		aria-label={page.url.next ? "Next Page" : null}
+		class:list={["btn join-item", nextState]}>»</a
+	>
 </div>
