@@ -7,17 +7,10 @@ const { class: className } = Astro.props
 ---
 
 <div
-	class="prose:list-inside custom-markdown
-		prose
-		dark:prose-invert
-		prose-h1:text-3xl prose-h1:font-bold prose-h1:text-accent
-		prose-h2:text-2xl prose-h2:underline
-		prose-h3:text-xl prose-h3:italic
-		prose-p:text-justify
-		prose-a:italic prose-a:text-primary prose-a:decoration-primary/30 prose-a:decoration-dashed
-		prose-blockquote:text-secondary/60 prose-code:font-mono prose-code:before:content-none
-		prose-code:after:content-none
-		prose-img:rounded-xl prose-video:rounded-xl"
+	class:list={[
+		"prose:list-inside custom-markdown prose dark:prose-invert prose-h1:text-3xl prose-h1:font-bold prose-h1:text-accent prose-h2:text-2xl prose-h2:underline prose-h3:text-xl prose-h3:italic prose-p:text-justify prose-a:italic prose-a:text-primary prose-a:decoration-primary/30 prose-a:decoration-dashed prose-blockquote:text-secondary/60 prose-code:font-mono prose-code:before:content-none prose-code:after:content-none prose-img:rounded-xl prose-video:rounded-xl",
+		className,
+	]}
 >
 	<slot />
 </div>
