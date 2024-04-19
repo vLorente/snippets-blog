@@ -7,10 +7,44 @@ const { class: className } = Astro.props
 ---
 
 <div
-	class:list={[
-		"prose dark:prose-invert prose-headings:underline prose-h1:text-xl prose-h1:font-bold prose-p:text-justify prose-img:rounded-xl",
-		className,
-	]}
+	class="prose:list-inside custom-markdown
+		prose
+		dark:prose-invert
+		prose-h1:text-3xl prose-h1:font-bold prose-h1:text-accent
+		prose-h2:text-2xl prose-h2:underline
+		prose-h3:text-xl prose-h3:italic
+		prose-p:text-justify
+		prose-a:italic prose-a:text-primary prose-a:decoration-primary/30 prose-a:decoration-dashed
+		prose-blockquote:text-secondary/60 prose-code:font-mono prose-code:before:content-none
+		prose-code:after:content-none
+		prose-img:rounded-xl prose-video:rounded-xl"
 >
 	<slot />
 </div>
+
+<style is:global>
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
+	@layer components {
+		.custom-markdown ul li::marker {
+			@apply text-primary;
+		}
+		.custom-markdown ol li::marker {
+			@apply text-primary;
+		}
+		.custom-markdown ul ul li::marker,
+		.custom-markdown ul ol li::marker,
+		.custom-markdown ol ul li::marker,
+		.custom-markdown ol ol li::marker {
+			@apply text-secondary;
+		}
+		.custom-markdown iframe {
+			@apply rounded-xl;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 100%;
+		}
+	}
+</style>

@@ -8,7 +8,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ["Roboto", ...defaultTheme.fontFamily.sans]
+				sans: ["Roboto", ...defaultTheme.fontFamily.sans],
+				mono: ["JetBrains Mono Variable", ...defaultTheme.fontFamily.mono]
 			}
 		},
 	},
