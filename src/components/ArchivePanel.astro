@@ -1,6 +1,7 @@
 ---
 import { UNCATEGORIZED } from "@constants/constants"
 import { getSortedPosts } from "@utils/content-utils"
+import { getPostText } from "@utils/site-text-utils"
 import { getPostUrlBySlug } from "@utils/url-utils"
 import type { CollectionEntry } from "astro:content"
 
@@ -74,14 +75,6 @@ function formatDate(date: Date) {
 
 function formatTag(tag: string[]) {
 	return tag.map((t) => `#${t}`).join(" ")
-}
-
-function getPostText(num: number): string {
-	if (num === 1) {
-		return "post"
-	}
-
-	return "posts"
 }
 ---
 

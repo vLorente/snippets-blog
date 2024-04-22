@@ -1,5 +1,6 @@
 ---
 import PostMetadata from "@components/PostMetadata.astro"
+import { getMinuteText, getWordText } from "@utils/site-text-utils"
 import { Image } from "astro:assets"
 import ChevronRight from "./icons/ChevronRight.astro"
 
@@ -83,11 +84,14 @@ const { remarkPluginFrontmatter } = await entry.render()
 
 		<!-- word count and read time  -->
 		<div class="flex gap-4 text-xs text-info/40 transition">
-			<div>{remarkPluginFrontmatter.words} {" " + "words"}</div>
+			<div>
+				{remarkPluginFrontmatter.words}
+				{" " + getWordText(remarkPluginFrontmatter.words)}
+			</div>
 			<div>|</div>
 			<div>
 				{remarkPluginFrontmatter.minutes}
-				{" " + "minutes"}
+				{" " + getMinuteText(remarkPluginFrontmatter.minutes)}
 			</div>
 		</div>
 	</div>

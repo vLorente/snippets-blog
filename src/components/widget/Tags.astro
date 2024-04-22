@@ -1,6 +1,7 @@
 ---
 import ButtonTag from "@components/control/ButtonTag.astro"
 import WidgetWrapper from "@components/widget/WidgetWrapper.astro"
+import { SiteText } from "@constants/site-texts"
 import { getTagList } from "@utils/content-utils"
 
 const tags = await getTagList()
@@ -18,12 +19,12 @@ const { class: className, style } = Astro.props
 ---
 
 <WidgetWrapper
-	name="Tags"
+	name={SiteText.tags}
 	id="tags"
 	isCollapsed={isCollapsed}
 	collapsedHeight={COLLAPSED_HEIGHT}
 	style={style}
-	class={className}
+	class:list={className}
 >
 	<div class="flex flex-wrap gap-2">
 		{

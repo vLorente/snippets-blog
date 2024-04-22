@@ -1,8 +1,9 @@
 ---
 import ArchivePanel from "@components/ArchivePanel.astro"
+import { SiteText } from "@constants/site-texts"
 import MainGridLayout from "@layouts/MainGridLayout.astro"
 ---
 
-<MainGridLayout title="Archive">
+<MainGridLayout title={SiteText.archive}>
 	<ArchivePanel />
 </MainGridLayout>

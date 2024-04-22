@@ -1,6 +1,7 @@
 ---
 import ButtonLink from "@components/control/ButtonLink.astro"
 import WidgetWrapper from "@components/widget/WidgetWrapper.astro"
+import { SiteText } from "@constants/site-texts"
 import { getCategoryList } from "@utils/content-utils"
 import { getCategoryUrl } from "@utils/url-utils"
 
@@ -24,10 +25,10 @@ const getLabel = (name: string): string => {
 
 <WidgetWrapper
 	id="categories"
-	name="Categories"
+	name={SiteText.categories}
 	isCollapsed={isCollapsed}
 	collapsedHeight={COLLAPSED_HEIGHT}
-	class={className}
+	class:list={className}
 	style={style}
 >
 	{

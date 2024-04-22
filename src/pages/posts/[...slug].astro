@@ -6,6 +6,7 @@ import Clock from "@components/icons/Clock.astro"
 import Markdown from "@components/Markdown.astro"
 import PostMetadata from "@components/PostMetadata.astro"
 import MainGridLayout from "@layouts/MainGridLayout.astro"
+import { getMinuteText, getWordText } from "@utils/site-text-utils"
 import { getPostUrlBySlug } from "@utils/url-utils"
 import { Image } from "astro:assets"
 import { getCollection } from "astro:content"
@@ -44,7 +45,7 @@ const { Content, remarkPluginFrontmatter } = await entry.render()
 					</div>
 					<div class="text-xs">
 						{remarkPluginFrontmatter.words}
-						{" " + "words"}
+						{" " + getWordText(remarkPluginFrontmatter.words)}
 					</div>
 				</div>
 				<div class="flex flex-row items-center">
@@ -55,7 +56,7 @@ const { Content, remarkPluginFrontmatter } = await entry.render()
 					</div>
 					<div class="text-xs">
 						{remarkPluginFrontmatter.minutes}
-						{" " + "minutes"}
+						{" " + getMinuteText(remarkPluginFrontmatter.minutes)}
 					</div>
 				</div>
 			</div>

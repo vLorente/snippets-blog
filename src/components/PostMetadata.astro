@@ -1,4 +1,5 @@
 ---
+import { SiteText } from "@constants/site-texts"
 import { formatDateToYYYYMMDD } from "@utils/data-utils"
 import Calendar from "./icons/Calendar.astro"
 import Menu from "./icons/Menu.astro"
@@ -38,7 +39,7 @@ const className = Astro.props.class
 					class="link-secondary whitespace-nowrap text-xs font-medium
                             transition"
 				>
-					{category || "Uncategorized"}
+					{category || SiteText.uncategorized}
 				</a>
 			</div>
 		</div>
@@ -58,7 +59,7 @@ const className = Astro.props.class
 								{tag}
 						</a>
 				</div>)}
-				{!(tags && tags.length > 0) && <div class="transition text-xs font-medium">noTags</div>}
+				{!(tags && tags.length > 0) && <div class="transition text-xs font-medium">{SiteText.noTags}</div>}
 		</div>
 </div>
 
