@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import animations from "@midudev/tailwind-animations"
 import defaultTheme from "tailwindcss/defaultTheme"
 
 export default {
@@ -16,7 +15,6 @@ export default {
 	plugins: [
 		require("@tailwindcss/typography"),
 		require("daisyui"),
-		animations,
 	],
 	daisyui: {
 		themes: [
