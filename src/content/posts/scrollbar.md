@@ -3,7 +3,7 @@ draft: true
 title: Personalización scrollbar
 published: 2024-04-18
 description: Personalizar colores, tamaño y hover de la scrollbar.
-tags: [Webkit, CSS]
+tags: [Webkit, CSS, Snippet]
 category: FrontEnd
 ---
 
