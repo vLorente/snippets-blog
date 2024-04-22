@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Instalación y Uso de Node Version Manager (NVM)
 published: 2024-04-22
 description: Gestionar de forma fácil multiples versiones de Node.js.

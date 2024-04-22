@@ -12,7 +12,7 @@ export const siteConfig: SiteConfig = {
 }
 
 export const profileConfig: ProfileConfig = {
-	avatar: "public/avatar.webp",
+	avatar: "./avatar.webp",
 	name: "Valentín Lorente",
 	bio: "Fullstack Developer",
 	links: [

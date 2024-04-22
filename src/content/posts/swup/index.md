@@ -1,10 +1,10 @@
 ---
-draft: true
+draft: false
 title: Animaciones con SWUP
 published: 2024-04-18
 description: Animaciones y transiciones de página fluidas con Swup en AstroJS.
 cover: "./swup-social.webp"
-tags: [Animaciones, AstroJS, Swup]
+tags: [Animaciones, Astro, Swup]
 category: FrontEnd
 ---
 
@@ -110,15 +110,16 @@ Se define la variable `content-delay` para establecer el valor inicial de delay 
 
 ```css
 :root {
-	--content-delay: 150ms;
+ --content-delay: 150ms;
 }
 ```
 
 ### Delay dinámico
 
-*Este ejemplo es para la estructura de AstroJS pero se puede adaptar a cualquier Framework.*
+_Este ejemplo es para la estructura de AstroJS pero se puede adaptar a cualquier Framework._
 
 Primero, definir el valor inicial del `delay` y el valor constante de incremento `interval`.
+
 ```javascript
 ---
 // Animation onload delay
@@ -161,5 +162,3 @@ A continuación, asignar de forma dinamica el atributo `animation-delay` al esti
 		)
 	}
 ```
-
-
