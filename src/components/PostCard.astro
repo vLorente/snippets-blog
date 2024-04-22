@@ -1,11 +1,12 @@
 ---
 import PostMetadata from "@components/PostMetadata.astro"
 import { Image } from "astro:assets"
+import type { CollectionEntry } from "astro:content"
 import ChevronRight from "./icons/ChevronRight.astro"
 
 interface Props {
 	class?: string
-	entry: any
+	entry: CollectionEntry<"posts">
 	title: string
 	url: string
 	published: Date
