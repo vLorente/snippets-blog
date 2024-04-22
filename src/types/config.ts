@@ -1,7 +1,7 @@
 import type { SocialIconName } from "@/types/icon"
 
 export type ProfileConfig = {
-	avatar: ImageMetadata
+	avatar: string
 	name: string
 	bio?: string
 	links: {
