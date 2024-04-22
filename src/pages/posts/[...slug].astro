@@ -11,8 +11,10 @@ import { Image } from "astro:assets"
 import { getCollection } from "astro:content"
 
 export async function getStaticPaths() {
-	const postEntries = await getCollection("posts")
-	return postEntries.map((entry) => ({
+	const blogEntries = await getCollection("posts", ({ data }) => {
+		return import.meta.env.PROD ? data.draft !== true : true
+	})
+	return blogEntries.map((entry) => ({
 		params: { slug: entry.slug },
 		props: { entry },
 	}))
@@ -111,9 +113,9 @@ const { Content, remarkPluginFrontmatter } = await entry.render()
 	<!-- Navigation to next and prev posts -->
 	<PostNavigate
 		nextPage={getPostUrlBySlug(entry.data.nextSlug)}
-		nextTitle={entry.data.title}
+		nextTitle={entry.data.nextTitle}
 		previousPage={getPostUrlBySlug(entry.data.prevSlug)}
-		previousTitle={entry.data.title}
+		previousTitle={entry.data.prevTitle}
 	/>
 </MainGridLayout>
 
