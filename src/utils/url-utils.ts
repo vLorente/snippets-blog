@@ -4,12 +4,12 @@ export function pathsEqual(path1: string, path2: string) {
 	return normalizedPath1 === normalizedPath2
 }
 
-function joinUrl(...parts: string[]): string {
-	const joined = parts.join("/")
-	return joined.replace(/([^:]\/)\/+/g, "$1")
-}
+// function joinUrl(...parts: string[]): string {
+// 	const joined = parts.join("/")
+// 	return joined.replace(/([^:]\/)\/+/g, "$1")
+// }
 
-export function getPostUrlBySlug(slug: string): string | null {
+export function getPostUrlBySlug(slug: string | undefined): string | null {
 	if (!slug) return null
 	return `/posts/${slug}`
 }

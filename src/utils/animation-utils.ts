@@ -1,4 +1,4 @@
-import { Page } from "astro"
+import type { Page } from "astro"
 
 export function getPaginationDelay(page: Page): number {
 	if (page.lastPage === 1) {

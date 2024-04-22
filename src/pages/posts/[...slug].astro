@@ -11,16 +11,18 @@ import { Image } from "astro:assets"
 import { getCollection } from "astro:content"
 
 export async function getStaticPaths() {
-	const blogEntries = await getCollection("posts", ({ data }) => {
+	const postEntries = await getCollection("posts", ({ data }) => {
 		return import.meta.env.PROD ? data.draft !== true : true
 	})
-	return blogEntries.map((entry) => ({
+	return postEntries.map((entry) => ({
 		params: { slug: entry.slug },
 		props: { entry },
 	}))
 }
 
 const { entry } = Astro.props
+console.log(entry)
+console.log(entry.data.nextSlug)
 const { Content, remarkPluginFrontmatter } = await entry.render()
 ---
 

@@ -4,12 +4,14 @@ import ChevronRight from "@components/icons/ChevronRight.astro"
 
 interface Props {
 	nextPage: string | null
-	nextTitle: string | null
+	nextTitle: string | undefined
 	previousPage: string | null
-	previousTitle: string | null
+	previousTitle: string | undefined
 }
 
 const { nextPage, nextTitle, previousPage, previousTitle } = Astro.props
+
+console.log(nextPage)
 ---
 
 <div

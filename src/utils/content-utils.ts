@@ -30,10 +30,12 @@ export async function getTagList(): Promise<Tag[]> {
 
 	const countMap: { [key: string]: number } = {}
 	allBlogPosts.map((post) => {
-		post.data.tags.map((tag: string) => {
-			if (!countMap[tag]) countMap[tag] = 0
-			countMap[tag]++
-		})
+		if (post.data.tags) {
+			post.data.tags.map((tag: string) => {
+				if (!countMap[tag]) countMap[tag] = 0
+				countMap[tag]++
+			})
+		}
 	})
 
 	// sort tags
