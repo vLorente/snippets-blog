@@ -1,0 +1,46 @@
+---
+import ChevronLeft from "@components/icons/ChevronLeft.astro"
+import ChevronRight from "@components/icons/ChevronRight.astro"
+
+interface Props {
+	nextPage: string | null
+	nextTitle: string | null
+	previousPage: string | null
+	previousTitle: string | null
+}
+
+const { nextPage, nextTitle, previousPage, previousTitle } = Astro.props
+---
+
+<div
+	class="mb-4 flex w-full flex-col justify-between gap-4 overflow-hidden md:flex-row"
+>
+	<a href={nextPage} class="w-full overflow-hidden font-bold active:scale-95">
+		{
+			nextPage && (
+				<div class="flex h-[3.75rem] w-full max-w-full items-center justify-start gap-4 rounded-2xl bg-black/10 px-4 transition hover:bg-primary/20">
+					<ChevronLeft size="32" class="text-primary" />
+					<div class="max-w-[calc(100%_-_3rem)] overflow-hidden overflow-ellipsis whitespace-nowrap transition">
+						{nextTitle}
+					</div>
+				</div>
+			)
+		}
+	</a>
+
+	<a
+		href={previousPage}
+		class="w-full overflow-hidden font-bold active:scale-95"
+	>
+		{
+			previousPage && (
+				<div class="flex h-[3.75rem] w-full max-w-full items-center justify-end gap-4 rounded-2xl bg-black/10 px-4 transition hover:bg-primary/20">
+					<div class="max-w-[calc(100%_-_3rem)] overflow-hidden overflow-ellipsis whitespace-nowrap transition">
+						{previousTitle}
+					</div>
+					<ChevronRight size="32" class="text-primary" />
+				</div>
+			)
+		}
+	</a>
+</div>

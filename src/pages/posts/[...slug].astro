@@ -1,7 +1,6 @@
 ---
+import PostNavigate from "@components/control/PostNavigate.astro"
 import Bars from "@components/icons/Bars.astro"
-import ChevronLeft from "@components/icons/ChevronLeft.astro"
-import ChevronRight from "@components/icons/ChevronRight.astro"
 import Clock from "@components/icons/Clock.astro"
 import Markdown from "@components/Markdown.astro"
 import PostMetadata from "@components/PostMetadata.astro"
@@ -110,41 +109,12 @@ const { Content, remarkPluginFrontmatter } = await entry.render()
 	</div>
 
 	<!-- Navigation to next and prev posts -->
-	<div
-		class="mb-4 flex w-full flex-col justify-between gap-4 overflow-hidden md:flex-row"
-	>
-		<a
-			href={getPostUrlBySlug(entry.data.nextSlug)}
-			class="w-full overflow-hidden font-bold active:scale-95"
-		>
-			{
-				entry.data.nextSlug && (
-					<div class="flex h-[3.75rem] w-full max-w-full items-center justify-start gap-4 rounded-2xl bg-black/10 px-4 transition hover:bg-primary/20">
-						<ChevronLeft size="32" class="text-primary" />
-						<div class="max-w-[calc(100%_-_3rem)] overflow-hidden overflow-ellipsis whitespace-nowrap transition">
-							{entry.data.nextTitle}
-						</div>
-					</div>
-				)
-			}
-		</a>
-
-		<a
-			href={getPostUrlBySlug(entry.data.prevSlug)}
-			class="w-full overflow-hidden font-bold active:scale-95"
-		>
-			{
-				entry.data.prevSlug && (
-					<div class="flex h-[3.75rem] w-full max-w-full items-center justify-start gap-4 rounded-2xl bg-black/10 px-4 transition hover:bg-primary/20">
-						<div class="max-w-[calc(100%_-_3rem)] overflow-hidden overflow-ellipsis whitespace-nowrap transition">
-							{entry.data.prevTitle}
-						</div>
-						<ChevronRight size="32" class="text-primary" />
-					</div>
-				)
-			}
-		</a>
-	</div>
+	<PostNavigate
+		nextPage={getPostUrlBySlug(entry.data.nextSlug)}
+		nextTitle={entry.data.title}
+		previousPage={getPostUrlBySlug(entry.data.prevSlug)}
+		previousTitle={entry.data.title}
+	/>
 </MainGridLayout>
 
 <!-- Animation delay para el contenidodel Markdown -->
