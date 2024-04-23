@@ -2,6 +2,7 @@
 import Pagination from "@components/control/Pagination.astro"
 import PostPage from "@components/PostPage.astro"
 import { PAGE_SIZE } from "@constants/constants"
+import { SiteText } from "@constants/site-texts"
 import MainGridLayout from "@layouts/MainGridLayout.astro"
 import { getPaginationDelay } from "@utils/animation-utils"
 import { getSortedPosts } from "@utils/content-utils"
@@ -16,7 +17,7 @@ const { page } = Astro.props
 const delay = getPaginationDelay(page)
 ---
 
-<MainGridLayout title="Home">
+<MainGridLayout title={SiteText.home}>
 	<PostPage page={page} />
 	<Pagination
 		page={page}
