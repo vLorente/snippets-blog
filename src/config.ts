@@ -37,14 +37,5 @@ export const profileConfig: ProfileConfig = {
 }
 
 export const navBarConfig: NavBarConfig = {
-	links: [
-		LinkPreset.Home,
-		LinkPreset.Archive,
-		LinkPreset.About,
-		// {
-		// 	name: "Portfolio",
-		// 	url: "https://vlorente.dev",
-		// 	external: true,
-		// },
-	],
+	links: [LinkPreset.Home, LinkPreset.Archive, LinkPreset.About],
 }

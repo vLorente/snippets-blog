@@ -13,7 +13,7 @@ const { links, class: className } = Astro.props
 <div
 	id="nav-menu-panel"
 	class:list={[
-		"float-panel closed fixed absolute right-4 px-2 py-2 transition-all",
+		"overflow-hidden rounded-box bg-base-100 px-2 py-2 shadow-xl transition-all dark:shadow-none",
 		className,
 	]}
 >
@@ -22,8 +22,7 @@ const { links, class: className } = Astro.props
 			<a
 				href={link.url}
 				class="group flex items-center justify-between gap-8 rounded-lg py-2 pl-3 pr-1
-            transition hover:bg-black/30 active:bg-primary/30
-        "
+            text-black transition hover:bg-black/30 active:bg-primary/30"
 				target={link.external ? "_blank" : null}
 			>
 				<div class="font-bold transition group-hover:text-primary group-active:text-primary ">

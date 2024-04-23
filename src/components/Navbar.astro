@@ -68,7 +68,7 @@ let links: NavBarLink[] = navBarConfig.links.map(
 		<div class="dropdown pl-2">
 			<div
 				aria-label="Menu"
-				class="btn-ghost flex h-11 w-11 items-center justify-center rounded-lg active:scale-90 md:hidden"
+				class="btn-ghost flex h-11 w-11 items-center justify-center rounded-lg active:scale-90 active:text-primary md:hidden"
 				id="nav-menu-switch"
 				role="button"
 				tabindex="0"
@@ -76,9 +76,15 @@ let links: NavBarLink[] = navBarConfig.links.map(
 				<Menu class="h-8 w-8" />
 			</div>
 			<NavMenuPanel
-				class="menu dropdown-content menu-sm rounded-box bg-base-100 shadow"
+				class="menu dropdown-content menu-sm right-4 z-[1]"
 				links={links}
 			/>
 		</div>
 	</div>
 </div>
+
+<style is:global>
+	.dropdown-content {
+		position: fixed !important;
+	}
+</style>
