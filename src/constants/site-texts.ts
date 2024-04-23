@@ -16,5 +16,5 @@ export const SiteText = {
 	postCount: "post",
 	postsCounts: "posts",
 
-	more: "Más",
+	more: "Mostrar más",
 }

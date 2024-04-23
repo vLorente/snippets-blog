@@ -1,5 +1,6 @@
 ---
 import DotsHoriz from "@components/icons/DotsHoriz.astro"
+import { SiteText } from "@constants/site-texts"
 
 interface Props {
 	id: string
@@ -37,10 +38,10 @@ const className = Astro.props.class
 	</div>
 	{
 		isCollapsed && (
-			<div class="expand-btn -mb-2 px-4">
-				<button class="btn-plain h-9 w-full rounded-lg">
-					<div class="flex -translate-x-2 items-center justify-center gap-2 text-primary">
-						<DotsHoriz size="28" /> More
+			<div id="expand-btn" class=" -mb-2 px-4">
+				<button class="btn-ghost h-9 w-full rounded-lg">
+					<div class="flex -translate-x-2 items-center justify-center gap-2 text-primary active:scale-95">
+						<DotsHoriz size="28" /> {SiteText.more}
 					</div>
 				</button>
 			</div>
@@ -66,7 +67,7 @@ const className = Astro.props.class
 			if (isCollapsed) return
 
 			const id = this.dataset.id
-			const btn = this.querySelector(".expand-btn")
+			const btn = this.querySelector("#expand-btn")
 			const wrapper = this.querySelector(`#${id}`)
 			if (btn && wrapper) {
 				btn.addEventListener("click", () => {
