@@ -24,17 +24,27 @@ La ventaja de utilizar la integración oficial, es que durenta la instalación d
 
 ## Configurar Web Analytics
 
+Paso 1: Instalar la dependencia
+
+```bash
+npm install @vercel/analytics
+# or
+pnpm add @vercel/analytics
+```
+
+Paso 2: Actualizar el fichero de configuración de astro `astro.config.mjs`
+
 ```javascript
 import { defineConfig } from "astro/config"
 import vercel from "@astrojs/vercel/serverless"
 
 export default defineConfig({
  // ...
- output: "server",
  adapter: vercel({
   webAnalytics: {
    enabled: true,
   },
+  // ...
  }),
 })
 ```
