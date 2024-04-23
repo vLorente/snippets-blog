@@ -24,5 +24,7 @@ export default defineConfig({
 		rehypePlugins: [rehypeKatex]
 	},
 	output: "hybrid",
-	adapter: vercel()
+	adapter: vercel({
+		webAnalytics: { enabled: true }
+	})
 })
