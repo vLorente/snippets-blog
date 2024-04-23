@@ -5,6 +5,8 @@ import {
 	type SiteConfig,
 } from "@/types/config"
 
+import avatar from "public/avatar.webp"
+
 export const siteConfig: SiteConfig = {
 	title: "vLorente Blog",
 	subtitle: "Repositorio de recortes de código y tutoriales",
@@ -12,7 +14,7 @@ export const siteConfig: SiteConfig = {
 }
 
 export const profileConfig: ProfileConfig = {
-	avatar: "./avatar.webp",
+	avatar: avatar,
 	name: "Valentín Lorente",
 	bio: "Fullstack Developer",
 	links: [

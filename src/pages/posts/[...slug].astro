@@ -21,8 +21,6 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props
-console.log(entry)
-console.log(entry.data.nextSlug)
 const { Content, remarkPluginFrontmatter } = await entry.render()
 ---
 

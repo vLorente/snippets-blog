@@ -1,7 +1,8 @@
 import type { SocialIconName } from "@/types/icon"
+import type { ImageMetadata } from "astro"
 
 export type ProfileConfig = {
-	avatar: string
+	avatar: ImageMetadata
 	name: string
 	bio?: string
 	links: {

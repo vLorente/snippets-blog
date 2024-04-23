@@ -2,6 +2,7 @@
 import ProfileIcon from "@components/icons/ProfileIcon.astro"
 import SocialIcon from "@components/icons/SocialIcon.astro"
 import { profileConfig } from "@config"
+import { Image } from "astro:assets"
 
 const config = profileConfig
 ---
@@ -23,10 +24,10 @@ const config = profileConfig
 			/>
 		</div>
 		<div class="mx-auto h-full lg:mt-0 lg:w-full">
-			<img
-				class="aspect-square h-full w-full object-cover object-center"
+			<Image
 				src={config.avatar}
-				alt="Profile avatar of the Author"
+				alt="Profile of the Author"
+				class="aspect-square h-full w-full object-cover object-center"
 			/>
 		</div>
 	</a>
