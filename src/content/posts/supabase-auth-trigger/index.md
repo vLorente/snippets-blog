@@ -70,6 +70,8 @@ Por último, nos dirigimos a la interfaz visual de configuración de trigger, se
 
 ![Supabase Trigger Result](supabase-trigger-result.webp)
 
-#### Fuentes
+## Fuentes
 
-<iframe width="100%" height="468" src="https://www.youtube.com/embed/mcrqn77lUmM?si=aOZ4nN34NQeejj74" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+- [Managing User Data](https://supabase.com/docs/guides/auth/managing-user-data?queryGroups=language&language=js)
+
+- [Fixed supabase trigger](https://www.youtube.com/watch?v=mcrqn77lUmM)
