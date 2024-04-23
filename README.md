@@ -5,7 +5,7 @@
 
 </div>
 
-<p></p>
+<p>Este es mi blog personal, donde podrás encontrar curiosidades sobre las últimas tecnologías con las que estoy experimentando, tutoriales y pequeños snippets para funcionalidades curiosas o útiles.</p>
 
 <div align="center">
 
