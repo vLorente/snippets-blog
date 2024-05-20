@@ -6,6 +6,7 @@ import { getCategoryList } from "@utils/content-utils"
 import { getCategoryUrl } from "@utils/url-utils"
 
 const categories = await getCategoryList()
+categories.sort((a, b) => b.count - a.count)
 
 const COLLAPSED_HEIGHT = "7.5rem"
 const COLLAPSE_THRESHOLD = 5
