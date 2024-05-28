@@ -1,7 +1,7 @@
 ---
 draft: true
 title: Crear un componente React como NPM Package
-published: 2024-05-20
+published: 2024-05-28
 description: Proceso de creación de mi primer paquete de NPM.
 tags: [NPM, package, React]
 category: FrontEnd
