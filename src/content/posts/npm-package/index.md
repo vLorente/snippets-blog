@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Crear un componente React como NPM Package
 published: 2024-05-28
 description: Proceso de creación de mi primer paquete de NPM.
