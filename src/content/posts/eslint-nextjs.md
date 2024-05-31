@@ -139,6 +139,8 @@ module.exports = {
   "array-element-newline": ["warn", "consistent"],
   "array-bracket-newline": ["warn", "consistent"],
   "prettier/prettier": "warn",
+  "react/react-in-jsx-scope": "off",
+  "react/jsx-uses-react": "off",
  },
  ignorePatterns: [
   "pnpm-lock.yaml",
