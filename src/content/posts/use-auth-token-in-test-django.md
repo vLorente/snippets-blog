@@ -1,0 +1,26 @@
+---
+draft: false
+title: Django Testing con Auth Token
+published: 2024-04-18
+description: Personalizar colores, tamaño y hover de la scrollbar.
+tags: [Webkit, CSS, Snippet]
+category: BackEnd
+---
+
+```python
+def get_valid_user_token():
+	username = 'test'
+	password = 'test123'
+	user = User.objects.create_user(username=username, password=password)
+
+	# Crear un token para el usuario
+	token = Token.objects.create(user=user)
+	return token
+
+
+class PlayerTestCase(TestCase):
+	def setUp(self):
+		self.client = APIClient()
+		self.token = get_valid_user_token()
+		self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
+```
