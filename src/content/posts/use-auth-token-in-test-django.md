@@ -1,9 +1,9 @@
 ---
 draft: false
 title: Django Testing con Auth Token
-published: 2024-04-18
-description: Personalizar colores, tamaño y hover de la scrollbar.
-tags: [Webkit, CSS, Snippet]
+published: 2024-09-23
+description: Hacer uso de la autenticación por Token en los test automáticos de Django Rest Framework.
+tags: [Django, Test]
 category: BackEnd
 ---
 
