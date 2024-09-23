@@ -18,9 +18,11 @@ def get_valid_user_token():
 	return token
 
 
-class PlayerTestCase(TestCase):
+class UseTestCase(TestCase):
 	def setUp(self):
 		self.client = APIClient()
 		self.token = get_valid_user_token()
 		self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
+
+		# Resto del test
 ```
