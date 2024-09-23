@@ -3,7 +3,7 @@ title: Configurar ESLint y Prettier para Next.JS
 published: 2024-05-30
 description: Esta guía describe cómo configurar VSCode, ESLint y Prettier para mantener un código limpio y consistente en un proyecto Next.js.
 tags: [ESLint, Prettier, Next.js, React]
-category: Frontend
+category: FrontEnd
 draft: false
 ---
 
