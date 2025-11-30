@@ -4,7 +4,7 @@ title: Instalación y Uso de Node Version Manager (NVM)
 published: 2024-04-22
 description: Gestionar de forma fácil multiples versiones de Node.js.
 tags: [Node]
-category: Enviroment
+category: Environment
 ---
 
 Permite gestionar fácilmente múltiples versiones de Node.js en un mismo sistema.
